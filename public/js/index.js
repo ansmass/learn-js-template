@@ -18,24 +18,30 @@ function showValue(value){
     
     for(var i = 0; i < value.length; i++){
         let tr = document.createElement('tr');
-        let td = document.createElement('td');
-        let avatar = document.createElement('img');
-        let firstName = document.createElement('p');
-        let lastName = document.createElement('p');
-        let email = document.createElement('p');
         
-        td.appendChild(avatar);
-        td.appendChild(firstName);
-        td.appendChild(lastName);
-        td.appendChild(email);
-
-        tr.appendChild(td);
-
+        let avatar = document.createElement('td');
+        let avatarImg = document.createElement('img');
+        avatarImg.src = value.avatar;
+        avatar.appendChild(avatarImg);
+        tr.appendChild(avatar);
+        
+        let lastName = document.createElement('td');
+        lastName.innerHTML = value.last_name;
+        tr.appendChild(lastName);
+        
+        let firstName = document.createElement('td');
+        firstName.innerHTML = value.first_name;
+        tr.appendChild(firstName);
+        
+        let email = document.createElement('td');
+        email.innerHTML = value.email;
+        tr.appendChild(email);
+        
         tbody.appendChild(tr);
     }
 }
 
 function init() {
-    getRandomUsers().then((value) => {console.log(value['avatar'] + value['last_name'] + value['first_name'] + value['email']);}, (error) => console.error(error));   
+    getRandomUsers().then((value) => {showValue(value);}, (error) => console.error(error));   
 }
 init();
