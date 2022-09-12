@@ -13,5 +13,29 @@ async function getRandomUsers() {
 /**
  * Your code here ⤵️
  */
+function showValue(value){
+    let tbody = document.getElementById('table_body');
+    
+    for(var i = 0; i < value.length; i++){
+        let tr = document.createElement('tr');
+        let td = document.createElement('td');
+        let avatar = document.createElement('img');
+        let firstName = document.createElement('p');
+        let lastName = document.createElement('p');
+        let email = document.createElement('p');
+        
+        td.appendChild(avatar);
+        td.appendChild(firstName);
+        td.appendChild(lastName);
+        td.appendChild(email);
 
-getRandomUsers().then(users => console.log(users));
+        tr.appendChild(td);
+
+        tbody.appendChild(tr);
+    }
+}
+
+function init() {
+    getRandomUsers().then((value) => {console.log(value['avatar'] + value['last_name'] + value['first_name'] + value['email']);}, (error) => console.error(error));   
+}
+init();
