@@ -1,11 +1,3 @@
-/* Your style here */
-
-/* .centered {
-  top: 50%;
-  left: 50%;
-  position: fixed;
-  transform: translate(-50%, -50%);
-} */
 
 /* GENERALITIES */
 body{
@@ -28,9 +20,14 @@ body{
   justify-content: center;
 }
 
+
+
 /* HEADER MENU */
+.header_menu{
+  margin-bottom: 1em;
+}
 .menu{
-  height: 10vh;
+  height: 15vh;
 
   display: flex;
   flex-direction: row;
@@ -46,35 +43,110 @@ body{
 }
 a{
   text-decoration: none;
-  color: #000;
+  color: #1E1F1D;
+  transition: all 0.3s ease-in-out;
 }
 a:hover{
+  border-bottom: 1px solid #22adc8;
+  font-weight: 500;
   color: #22adc8;
+  
 }
+
+
 
 /* MAIN CONTAINER */
 .container{
-  height: 80vh;
+  height: auto;
 }
+
+/* Refresh button */
+button{
+  padding: 0.5em 0;
+  width: 7vw;
+  
+  border: none;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 5px;
+  transition: all 0.3s ease-in-out;
+
+  cursor: pointer
+}
+button:hover{
+  color: crimson;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+#container_refresh-button{
+  width: 4em;
+  height: 4em;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 15vh;
+  right: 7vw;
+
+  border: none;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 5px;
+  transition: 0.3s ease-in-out;
+
+  cursor: pointer
+}
+#container_refresh-button:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+#container_refresh-button:hover > svg{
+  transform: rotate(180deg);
+  transition: 0.4s ease-in-out;
+}
+#container_refresh-button:hover svg > path{
+  fill: #22adc8;
+  transition: 0.5s ease-in-out;
+}
+
 /* Table */
 .table{
   width: 70%;
+  height: auto;
 }
-.table,
+.table
 .table_head,
 .table_head-title,
 .table_body,
-.table_body-row,
-.table_body-data{
-  border: 1px solid #000;
+tr,
+td{
+  border-right: 1px solid #888;
+  border-bottom: 1px solid #888;
   border-collapse: collapse;
 }
-.table_body-data{ 
-  padding: 0.5em;
+.table_head{
+  color: #22adc8;
 }
+th{
+  padding: 1.5em;
+}
+tr:nth-child(even) > td{
+  color: #fff;
+  background-color: rgba(11, 79, 117, 0.5);
+}
+td{
+  padding: 0.5em;
+  color: #0b4f75;
+}
+td:nth-child(5){
+  padding: 0 0 0 2%;
+}
+td > img{
+  width: 5em;
+  height: 5em;
+}
+
 
 
 /* FOOTER */
 .footer_menu{
-  height: 10vh;
+  height: 15vh;
 }
