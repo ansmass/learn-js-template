@@ -1,65 +1,73 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../public/styles/index.css" />
-    <title>Learn JS</title>
-  </head>
-  <body>
-    <header class="header_menu">
-      <nav class="menu">
-        <a href="index.html" class="menu_items">
-          <img src="../public/styles/apini-logo.jpg" alt="Logo apini" class="logo">
-        </a>
-        <a href="index.html" class="menu_items">Home</a>
-        <a href="about.html" class="menu_items">About</a>
-      </nav>
-    </header>
 
-    <main class="container">
-      <button id="container_refresh-button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 20V13H11L7.783 16.22C8.89296 17.355 10.4125 17.9964 12 18C14.5394 17.9962 16.8015 16.3942 17.648 14H17.666C17.7805 13.6746 17.8672 13.3401 17.925 13H19.937C19.4331 16.9999 16.0315 19.9999 12 20H11.99C9.86876 20.0063 7.83316 19.1637 6.337 17.66L4 20ZM6.074 11H4.062C4.56575 7.0016 7.965 4.00213 11.995 3.99995H12C14.1216 3.99316 16.1577 4.83583 17.654 6.33999L20 3.99995V11H13L16.222 7.77999C15.1109 6.64364 13.5893 6.00213 12 5.99999C9.46055 6.00374 7.19848 7.60577 6.352 9.99999H6.334C6.21856 10.3251 6.13189 10.6597 6.075 11H6.074Z" fill="#1e1f1d"></path>
-        </svg>
-      </button>
-      <table class="table">
-        <thead class="table_head">
-          <th class="table_head-title">Avatar</th>
-          <th class="table_head-title">Name</th>
-          <th class="table_head-title">First name</th>
-          <th class="table_head-title">Email</th>
-          <th class="table_head-title">Actions</th>
-        </thead>
-        <tbody id="table_body">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../public/styles/index.css" />
+  <title>Learn JS</title>
+</head>
 
-        </tbody>
-      </table>
+<body>
+  <header class="header_menu">
+    <nav class="menu">
+      <a href="index.html" class="menu_items">
+        <img src="../public/styles/apini-logo.jpg" alt="Logo apini" class="logo">
+      </a>
+      <a href="index.html" class="menu_items">Home</a>
+      <a href="about.html" class="menu_items">About</a>
+    </nav>
+  </header>
 
-      <div id="container_update-modale">
-        <svg id="close-cross" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5Z" fill="#e9e9e9"></path>
-        </svg>
-        
-        <form action="./public/js/index.js" method="post" class="modale_form">
-          <fieldset class="modale_form-fieldset">
-            <legend class="modale_form-legend">Update user</legend>
+  <main class="container">
+    <button id="container_refresh-button">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M4 20V13H11L7.783 16.22C8.89296 17.355 10.4125 17.9964 12 18C14.5394 17.9962 16.8015 16.3942 17.648 14H17.666C17.7805 13.6746 17.8672 13.3401 17.925 13H19.937C19.4331 16.9999 16.0315 19.9999 12 20H11.99C9.86876 20.0063 7.83316 19.1637 6.337 17.66L4 20ZM6.074 11H4.062C4.56575 7.0016 7.965 4.00213 11.995 3.99995H12C14.1216 3.99316 16.1577 4.83583 17.654 6.33999L20 3.99995V11H13L16.222 7.77999C15.1109 6.64364 13.5893 6.00213 12 5.99999C9.46055 6.00374 7.19848 7.60577 6.352 9.99999H6.334C6.21856 10.3251 6.13189 10.6597 6.075 11H6.074Z"
+          fill="#1e1f1d"></path>
+      </svg>
+    </button>
+    <table class="table">
+      <thead class="table_head">
+        <th class="table_head-title">Avatar</th>
+        <th class="table_head-title">Name</th>
+        <th class="table_head-title">First name</th>
+        <th class="table_head-title">Email</th>
+        <th class="table_head-title">Actions</th>
+      </thead>
+      <tbody id="table_body">
 
-            <input id="url" type="text" name="url" placeholder="Avatar (url)">
-            <input id="lastName" type="text" name="lastName" placeholder="Last name">
-            <input id="firstName" type="text" name="firstName" placeholder="First name">
-            <input id="email" type="text" name="email" placeholder="Email">
-          </fieldset>
-        </form>
+      </tbody>
+    </table>
+
+    <div id="container_update-modale">
+      <svg id="close-cross" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5Z"
+          fill="#e9e9e9"></path>
+      </svg>
+
+      <div class="modale_form">
+        <fieldset class="modale_form-fieldset">
+          <legend class="modale_form-legend">Update user</legend>
+
+          <input id="url" type="text" name="url" placeholder="Avatar (url)">
+          <input id="lastName" type="text" name="lastName" placeholder="Last name">
+          <input id="firstName" type="text" name="firstName" placeholder="First name">
+          <input id="email" type="text" name="email" placeholder="Email">
+          <button id="submitButton" type="submit">Save</button>
+        </fieldset>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <footer class="footer_menu">
-      <a href="https://github.com/ansmass" target="_blank">Anselme GitHub</a>
-    </footer>
+  <footer class="footer_menu">
+    <a href="https://github.com/ansmass" target="_blank">Anselme GitHub</a>
+  </footer>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../public/js/index.js"></script>
-  </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../public/js/index.js"></script>
+</body>
+
 </html>

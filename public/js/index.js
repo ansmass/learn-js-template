@@ -1,7 +1,10 @@
+let selectedTrToUpdate;
+const urlInputModal = document.getElementById('url');
+const emailInputModal = document.getElementById('email');
 const tbody = document.getElementById('table_body');
+const lastNameInputModal = document.getElementById('lastName');
+const firstNameInputModal = document.getElementById('firstName');
 const modal = document.getElementById('container_update-modale');
-const close = document.getElementById('close-cross');
-
 
 // ––– FUNCTIONS ––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
@@ -10,6 +13,7 @@ const close = document.getElementById('close-cross');
  */
 async function init() {
     refreshData();
+    initModal();
     addEventOnReloadButton();
 }
 
@@ -64,22 +68,19 @@ function fillTable(users) {
         let button = document.createElement('td');
         const deleteButton = document.createElement('button'); //To delete row
         const updateButton = document.createElement('button'); //To update row informations
-        
+
         deleteButton.innerText = 'Delete';
         updateButton.innerText = 'Update';
-        
+
         button.appendChild(deleteButton);
         button.appendChild(updateButton);
 
         deleteButton.addEventListener('click', () => {
             tr.remove();
         });
-        updateButton.addEventListener('click', () => {
+        updateButton.addEventListener('click', (event) => {
             modal.style.display = 'flex';
-            fillForm(tr);
-        });
-        close.addEventListener('click', () =>{
-            modal.style.display = "none";
+            fillFormModal(tr);
         });
 
         tr.appendChild(button);
@@ -106,32 +107,33 @@ function addEventOnReloadButton() {
     });
 }
 
+function initModal() {
+    const close = document.getElementById('close-cross');
+    const submitButton = document.getElementById('submitButton');
+
+    // Add event to close modal
+    close.addEventListener('click', () => {
+        modal.style.display = "none";
+    });
+
+    submitButton.addEventListener('click', () => {
+        selectedTrToUpdate.children[3].innerText = emailInputModal.value;
+        selectedTrToUpdate.children[0].firstChild.src = urlInputModal.value;
+        selectedTrToUpdate.children[1].innerText = lastNameInputModal.value;
+        selectedTrToUpdate.children[2].innerText = firstNameInputModal.value;
+        modal.style.display = "none";
+    });
+}
+
 /**
  * @description Update users informations
  */
-const submitButton = document.createElement('button');
-submitButton.innerText = 'Save';
-modal.appendChild(submitButton);
-
-function fillForm(tr){
-    let urlInput = document.getElementById('url');
-    let lastNameInput = document.getElementById('lastName');
-    let firstNameInput = document.getElementById('firstName');
-    let emailInput = document.getElementById('email');
-
-    urlInput.value = tr.children[0].firstChild.src;
-    lastNameInput.value = tr.children[1].innerText;
-    firstNameInput.value = tr.children[2].innerText;
-    emailInput.value = tr.children[3].innerText;
-
-    submitButton.addEventListener('click', () => {
-        tr.children[0].firstChild.src = urlInput.value;
-        tr.children[1].innerText = lastNameInput.value;
-        tr.children[3].innerText = emailInput.value;
-        tr.children[2].innerText = firstNameInput.value;
-
-        modal.style.display = "none";
-    });
+function fillFormModal(tr) {
+    selectedTrToUpdate = tr;
+    urlInputModal.value = tr.children[0].firstChild.src;
+    lastNameInputModal.value = tr.children[1].innerText;
+    firstNameInputModal.value = tr.children[2].innerText;
+    emailInputModal.value = tr.children[3].innerText;
 }
 
 // ––– ALGO ––––––––––––––––––––––––––––––––––––––––––––––––––––––
