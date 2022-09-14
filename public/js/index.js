@@ -74,10 +74,12 @@ function fillTable(users) {
         });
         updateButton.addEventListener('click', () => {
             modal.style.display = 'flex';
-        })
+
+            fillForm(tr);
+        });
         close.addEventListener('click', () =>{
             modal.style.display = 'none';
-        })
+        });
 
         tr.appendChild(button);
 
@@ -103,6 +105,21 @@ function addEventOnReloadButton() {
     });
 }
 
+/**
+ * @description Update users informations
+ */
+function fillForm(tr){
+    let urlInput = document.getElementById('url');
+    let lastNameInput = document.getElementById('lastName');
+    let firstNameInput = document.getElementById('firstName');
+    let emailInput = document.getElementById('email');
+    let submitButton =  document.getElementById('submit');
+    
+    urlInput.value = tr.avatarImg;
+
+    console.log(tr);
+    console.log(urlInput);
+}
 
 // ––– ALGO ––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
