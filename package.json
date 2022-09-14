@@ -2,6 +2,7 @@
   "name": "learn-js-template",
   "version": "1.0.0",
   "description": "Learn JS",
+  "type": "commonjs",
   "main": "main.js",
   "scripts": {
     "start": "nodemon main.js"
