@@ -58,10 +58,14 @@ a:hover{
 /* MAIN CONTAINER */
 .container{
   height: auto;
+  position: relative;
 }
 
-/* Refresh button */
+/* BUTTONS */
+/* Button to delete and update */
 button{
+  margin-right: 1em;
+
   padding: 0.5em 0;
   width: 7vw;
   
@@ -73,9 +77,16 @@ button{
   cursor: pointer
 }
 button:hover{
-  color: crimson;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
 }
+button:nth-child(1):hover{
+  color: #bf0000;
+}
+button:nth-child(2):hover{
+  color: #22adc8;
+}
+
+/* Button to refresh */
 #container_refresh-button{
   width: 4em;
   height: 4em;
@@ -115,7 +126,6 @@ button:hover{
 .table
 .table_head,
 .table_head-title,
-.table_body,
 tr,
 td{
   border-right: 1px solid #888;
@@ -133,7 +143,8 @@ tr:nth-child(even) > td{
   background-color: rgba(11, 79, 117, 0.5);
 }
 td{
-  padding: 0.5em;
+  padding-left: 0.5em;
+  height: 10em;
   color: #0b4f75;
 }
 td:nth-child(5){
@@ -144,6 +155,68 @@ td > img{
   height: 5em;
 }
 
+/* Update Modale */
+#container_update-modale{
+  width: 70%;
+  height: 60vh;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border: none;
+  border-radius: 15px;
+  background-color: rgba(11, 79, 117);
+}
+#container_update-modale > svg{
+  position: absolute;
+  top: 2vh;
+  right: 5%;
+
+  cursor: pointer;
+}
+
+/* form in modale */
+.modale_form{
+  padding: 0 2em;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+}
+.modale_form-fieldset{
+  padding: 0 1em;
+
+  width: 100%;
+  height: 70%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border: none;
+}
+.modale_form-legend{
+  color: #fff;
+}
+input{
+  margin-bottom: 1.5em;
+  padding: 0 0 0.5em 0.5em;
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+}
+input ::placeholder{
+  color: #888;
+}
 
 
 /* FOOTER */

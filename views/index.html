@@ -36,6 +36,24 @@
 
         </tbody>
       </table>
+
+      <div id="container_update-modale">
+        <svg id="close-cross" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41L17.59 5Z" fill="#e9e9e9"></path>
+        </svg>
+        
+        <form action="./public/js/index.js" method="post" class="modale_form">
+          <fieldset class="modale_form-fieldset">
+            <legend class="modale_form-legend">Update user</legend>
+
+            <input id="url" type="text" name="url" placeholder="Avatar (url)">
+            <input id="lastName" type="text" name="lastName" placeholder="Last name">
+            <input id="firstName" type="text" name="firstName" placeholder="First name">
+            <input id="email" type="text" name="email" placeholder="Email">
+            <button id="submit" type="submit">Save</button>
+          </fieldset>
+        </form>
+      </div>
     </main>
 
     <footer class="footer_menu">

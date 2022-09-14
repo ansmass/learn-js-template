@@ -115,7 +115,7 @@ function fillForm(tr){
     let emailInput = document.getElementById('email');
     let submitButton =  document.getElementById('submit');
     
-    urlInput.value = tr.avatarImg;
+    
 
     console.log(tr);
     console.log(urlInput);
