@@ -155,7 +155,7 @@ td{
 td:nth-child(5){
   padding: 0 0 0 2%;
 }
-td > img{
+img{
   width: 5em;
   height: 5em;
 }
@@ -200,7 +200,7 @@ td > img{
   align-items: center;
 }
 .modale_form-fieldset{
-  padding: 0 1em;
+  padding:  1em;
 
   width: 100%;
   height: 70%;
