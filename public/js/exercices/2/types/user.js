@@ -1,9 +1,21 @@
-export class User extends Table{
-    construct(userId, userAvatar, userLastName, userFirstName, userEmail){
-        this.userId = userId;
-        this.userAvatar = userAvatar;
-        this.userLastName = userLastName;
-        this.userFirstName = userFirstName;
-        this.userEmail = userEmail;
+export class User {
+    users;
+
+    constructor() {
+        this.getRandomUsers().then(
+            (users) => {
+                this.users = users
+            },
+            (err) => console.error(err)
+        );
     }
-}
+
+    async getRandomUsers() {
+        try {
+            const res = await axios.get("https://random-data-api.com/api/users/random_user?size=100");
+            return res.data;
+        } catch (err) {
+            console.error(`[INDEX JS ERROR] : ${err}`);
+        }
+    }
+}   
