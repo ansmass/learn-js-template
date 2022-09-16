@@ -84,6 +84,7 @@ export class Table extends User {
         const closeBtnModal = document.getElementById('close-cross');
         const submitButton = document.getElementById('submitButton');
         const refreshButton = document.getElementById('container_refresh-button');
+        const addNewUserButton = document.getElementById('container_add-user-button');
 
         refreshButton.addEventListener('click', () => {
             this.removeAllData();
@@ -97,15 +98,19 @@ export class Table extends User {
         submitButton.addEventListener('click', () => {
             const trToUpdate = document.getElementById(this.userIdToUpdate);
 
-            console.log(trToUpdate)
-
             trToUpdate.children[3].innerText = this.inputUserEmail.value; 
             trToUpdate.children[1].innerText = this.inputUserLastName.value; 
             trToUpdate.children[2].innerText = this.inputUserFirstName.value; 
             trToUpdate.children[0].firstChild.src = this.inputUserAvatar.value;
 
-            this.modal.style.display = "none";
+            this.modal.style.display = 'none';
         });
+
+        addNewUserButton.addEventListener('click', () => {
+            this.modal.style.display = 'flex';
+
+            console.log('hello');
+        })
     }
 
     removeAllData() {
