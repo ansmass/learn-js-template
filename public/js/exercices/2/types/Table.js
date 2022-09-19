@@ -8,6 +8,7 @@ export class Table extends User {
     inputUserLastName = document.getElementById('lastName');
     inputUserFirstName = document.getElementById('firstName');
     modal = document.getElementById('container_update-modale');
+    submitUpdateButton = document.getElementById('submitUpdateButton');
 
     constructor() {
         super();
@@ -15,10 +16,7 @@ export class Table extends User {
     }
 
     async initTable() {
-        // Fill table => Remplir le tableau avec les données (C'EST TOUT)
         await this.refereshData();
-
-        // Add event listerner on buttons => Ajout des événements sur tous les boutons
         this.addEventOnButtons();
     }
 
@@ -59,7 +57,7 @@ export class Table extends User {
             tr.appendChild(button);
 
             // Button to delete row one by one of the table
-            let deleteButton = document.createElement('button');
+            const deleteButton = document.createElement('button');
             button.appendChild(deleteButton);
             deleteButton.innerText = 'Delete';
             deleteButton.addEventListener('click', () => {
@@ -67,11 +65,12 @@ export class Table extends User {
             });
 
             // Button to update data of user
-            let updateButton = document.createElement('button');
+            const updateButton = document.createElement('button');
             button.appendChild(updateButton);
             updateButton.innerText = 'Update';
             updateButton.addEventListener('click', () => {
                 this.modal.style.display = 'flex';
+                this.submitUpdateButton.style.display = 'block';
                 this.fillModalForm(tr);
                 this.userIdToUpdate = tr.id;
             });
@@ -82,8 +81,13 @@ export class Table extends User {
 
     addEventOnButtons(){
         const closeBtnModal = document.getElementById('close-cross');
-        const submitButton = document.getElementById('submitButton');
+        const submitAddButton = document.getElementById('submitAddButton');
         const refreshButton = document.getElementById('container_refresh-button');
+        const addNewUserButton = document.getElementById('container_add-user-button');
+
+        if(addNewUserButton.addEventListener('click', () => {})){
+            console.log('hello');
+        }
 
         refreshButton.addEventListener('click', () => {
             this.removeAllData();
@@ -94,18 +98,26 @@ export class Table extends User {
             this.modal.style.display = 'none';
         });
 
-        submitButton.addEventListener('click', () => {
+        submitUpdateButton.addEventListener('click', () => {
             const trToUpdate = document.getElementById(this.userIdToUpdate);
 
-            console.log(trToUpdate)
-
-            trToUpdate.children[3].innerText = this.inputUserEmail.value; 
-            trToUpdate.children[1].innerText = this.inputUserLastName.value; 
-            trToUpdate.children[2].innerText = this.inputUserFirstName.value; 
-            trToUpdate.children[0].firstChild.src = this.inputUserAvatar.value;
-
-            this.modal.style.display = "none";
+            window.addEventListener('DOMContentLoaded', () => {
+                trToUpdate.children[3].innerText = this.inputUserEmail.value; 
+                trToUpdate.children[1].innerText = this.inputUserLastName.value; 
+                trToUpdate.children[2].innerText = this.inputUserFirstName.value; 
+                trToUpdate.children[0].firstChild.src = this.inputUserAvatar.value;
+            })
+            this.modal.style.display = 'none';
         });
+
+        addNewUserButton.addEventListener('click', () => {
+            this.modal.style.display = 'flex';
+            submitAddButton.style.display = "block"
+        });
+        submitAddButton.addEventListener('click', () => {
+            this.addNewUser();
+            this.modal.style.display = 'none';
+        })
     }
 
     removeAllData() {
@@ -120,4 +132,52 @@ export class Table extends User {
         this.inputUserFirstName.value  = tr.children[2].innerText;
         this.inputUserAvatar.value  = tr.children[0].firstChild.src;
     }
+
+    addNewUser(){
+        let tr = document.createElement('tr');
+        
+        // New user avatar
+        let newUserAvatarTd = document.createElement('td');
+        let newUserAvatar = document.createElement('img');
+        newUserAvatar.src = this.inputUserAvatar.value;
+        newUserAvatarTd.appendChild(newUserAvatar);
+        tr.appendChild(newUserAvatarTd);
+
+        // New user last name
+        let newUserLastName = document.createElement('td');
+        newUserLastName.innerText = this.inputUserLastName.value;
+        tr.appendChild(newUserLastName);
+
+        // New user first name
+        let newUserFirstName = document.createElement('td');
+        newUserFirstName.innerText = this.inputUserFirstName.value;
+        tr.appendChild(newUserFirstName);
+
+        // New user email
+        let newUserEmail = document.createElement('td');
+        newUserEmail.innerText = this.inputUserEmail.value;
+        tr.appendChild(newUserEmail);
+        
+
+        let button = document.createElement('td');
+        tr.appendChild(button);
+
+        const deleteButton = document.createElement('button');
+        button.appendChild(deleteButton);
+        deleteButton.innerText = 'Delete';
+        deleteButton.addEventListener('click', () => {
+            tr.remove(tr.children);
+        });
+
+        const updateButton = document.createElement('button');
+        button.appendChild(updateButton);
+        updateButton.innerText = 'Update';
+        updateButton.addEventListener('click', () => {
+            this.modal.style.display = 'flex';
+        });
+
+        this.tbody.appendChild(tr);
+    }
+
+    
 }
