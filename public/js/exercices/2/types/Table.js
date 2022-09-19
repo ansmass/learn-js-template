@@ -109,7 +109,7 @@ export class Table extends User {
         addNewUserButton.addEventListener('click', () => {
             this.modal.style.display = 'flex';
 
-            console.log('hello');
+            console.log('New user modale');
         })
     }
 
