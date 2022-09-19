@@ -84,10 +84,13 @@ export class Table extends User {
         const submitAddButton = document.getElementById('submitAddButton');
         const refreshButton = document.getElementById('container_refresh-button');
         const addNewUserButton = document.getElementById('container_add-user-button');
+<<<<<<< HEAD
 
         if(addNewUserButton.addEventListener('click', () => {})){
             console.log('hello');
         }
+=======
+>>>>>>> 7d40d0f70915d51a3c3dab927252f323fb1d91d6
 
         refreshButton.addEventListener('click', () => {
             this.removeAllData();
@@ -101,22 +104,35 @@ export class Table extends User {
         submitUpdateButton.addEventListener('click', () => {
             const trToUpdate = document.getElementById(this.userIdToUpdate);
 
+<<<<<<< HEAD
             window.addEventListener('DOMContentLoaded', () => {
                 trToUpdate.children[3].innerText = this.inputUserEmail.value; 
                 trToUpdate.children[1].innerText = this.inputUserLastName.value; 
                 trToUpdate.children[2].innerText = this.inputUserFirstName.value; 
                 trToUpdate.children[0].firstChild.src = this.inputUserAvatar.value;
             })
+=======
+            trToUpdate.children[3].innerText = this.inputUserEmail.value; 
+            trToUpdate.children[1].innerText = this.inputUserLastName.value; 
+            trToUpdate.children[2].innerText = this.inputUserFirstName.value; 
+            trToUpdate.children[0].firstChild.src = this.inputUserAvatar.value;
+
+>>>>>>> 7d40d0f70915d51a3c3dab927252f323fb1d91d6
             this.modal.style.display = 'none';
         });
 
         addNewUserButton.addEventListener('click', () => {
             this.modal.style.display = 'flex';
+<<<<<<< HEAD
             submitAddButton.style.display = "block"
         });
         submitAddButton.addEventListener('click', () => {
             this.addNewUser();
             this.modal.style.display = 'none';
+=======
+
+            console.log('New user modale');
+>>>>>>> 7d40d0f70915d51a3c3dab927252f323fb1d91d6
         })
     }
 

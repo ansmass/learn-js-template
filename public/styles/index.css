@@ -119,12 +119,18 @@ button:nth-child(3){
 }
 
 #container_add-user-button{
+<<<<<<< HEAD
   width: 3em;
   height: 3em;
+=======
+  width: 4em;
+  height: 4em;
+>>>>>>> 7d40d0f70915d51a3c3dab927252f323fb1d91d6
   
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
 
   border: none;
   border-radius: 50px;
@@ -151,6 +157,23 @@ button:nth-child(3){
   display: none;
 }
 
+=======
+
+  border: none;
+  border-radius: 50px;
+  transition: 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 3px 5px;
+
+  cursor: pointer
+}
+#container_add-user-button:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+#container_add-user-button:hover svg > path{
+  fill: #22adc8;
+  transition: 0.5s ease-in-out;
+}
+>>>>>>> 7d40d0f70915d51a3c3dab927252f323fb1d91d6
 /* Update Modale */
 #container_update-modale{
   width: 70%;
