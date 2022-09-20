@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../public/styles/index.css" />
   <link rel="stylesheet" href="../public/styles/table.css" />
+  <link rel="stylesheet" href="../public/styles/fonts/cabinet-grotesk.css" />
   <title>Learn JS</title>
 </head>
 
@@ -14,7 +15,7 @@
   <header class="header_menu">
     <nav class="menu">
       <a href="index.html" class="menu_items">
-        <img src="../public/styles/apini-logo.jpg" alt="Logo apini" class="logo">
+        <img src="../public/styles/am.png" alt="Logo apini" class="logo">
       </a>
       <a href="index.html" class="menu_items">Home</a>
       <a href="about.html" class="menu_items">About</a>
@@ -32,18 +33,20 @@
             <th class="table_head-email">Email</th>
             <th class="table_head-actions">
               Actions
-              <button id="container_add-user-button">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M13 13V19H11V13H5V11H11V5H13V11H19V13H13Z" fill="#1e1F1D"></path>
-                </svg>
-              </button>
-              <button id="container_refresh-button">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M4 20V13H11L7.783 16.22C8.89296 17.355 10.4125 17.9964 12 18C14.5394 17.9962 16.8015 16.3942 17.648 14H17.666C17.7805 13.6746 17.8672 13.3401 17.925 13H19.937C19.4331 16.9999 16.0315 19.9999 12 20H11.99C9.86876 20.0063 7.83316 19.1637 6.337 17.66L4 20ZM6.074 11H4.062C4.56575 7.0016 7.965 4.00213 11.995 3.99995H12C14.1216 3.99316 16.1577 4.83583 17.654 6.33999L20 3.99995V11H13L16.222 7.77999C15.1109 6.64364 13.5893 6.00213 12 5.99999C9.46055 6.00374 7.19848 7.60577 6.352 9.99999H6.334C6.21856 10.3251 6.13189 10.6597 6.075 11H6.074Z"
-                    fill="#1e1f1d"></path>
-                </svg>
-              </button>
+              <div class="button_box">
+                <button id="container_add-user-button">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 13V19H11V13H5V11H11V5H13V11H19V13H13Z" fill="#1e1F1D"></path>
+                  </svg>
+                </button>
+                <button id="container_refresh-button">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4 20V13H11L7.783 16.22C8.89296 17.355 10.4125 17.9964 12 18C14.5394 17.9962 16.8015 16.3942 17.648 14H17.666C17.7805 13.6746 17.8672 13.3401 17.925 13H19.937C19.4331 16.9999 16.0315 19.9999 12 20H11.99C9.86876 20.0063 7.83316 19.1637 6.337 17.66L4 20ZM6.074 11H4.062C4.56575 7.0016 7.965 4.00213 11.995 3.99995H12C14.1216 3.99316 16.1577 4.83583 17.654 6.33999L20 3.99995V11H13L16.222 7.77999C15.1109 6.64364 13.5893 6.00213 12 5.99999C9.46055 6.00374 7.19848 7.60577 6.352 9.99999H6.334C6.21856 10.3251 6.13189 10.6597 6.075 11H6.074Z"
+                      fill="#1e1f1d"></path>
+                  </svg>
+                </button>
+              </div>
             </th>
           </tr>
         </thead>
@@ -67,7 +70,7 @@
           <input id="firstName" type="text" name="firstName" placeholder="First name">
           <input id="email" type="text" name="email" placeholder="Email">
           <button id="submitUpdateButton" class="button-display-none" type="submit">Save</button>
-          <button id="submitAddButton" class="button-display-none" type="submit">Save</button>
+          <button id="submitAddButton" class="button-display-none" type="submit">Add</button>
         </fieldset>
       </div>
     </div>

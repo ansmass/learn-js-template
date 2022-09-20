@@ -1,6 +1,7 @@
 import { User } from "./user.js";
 
 export class Table extends User {
+    // Global variables
     userIdToUpdate = null;
     tbody = document.getElementById('table_body');
     inputUserAvatar = document.getElementById('url');
@@ -8,6 +9,7 @@ export class Table extends User {
     inputUserLastName = document.getElementById('lastName');
     inputUserFirstName = document.getElementById('firstName');
     modal = document.getElementById('container_update-modale');
+    submitAddButton = document.getElementById('submitAddButton');
     submitUpdateButton = document.getElementById('submitUpdateButton');
 
     constructor() {
@@ -15,16 +17,25 @@ export class Table extends User {
         this.initTable();
     }
 
+    /**
+     * @description Init data of table
+     */
     async initTable() {
         await this.refereshData();
         this.addEventOnButtons();
     }
 
+    /**
+     * @description Delete and recharge data of table
+     */
     async refereshData(){
         await this.getRandomUsers();
         this.fillTable();
     }
 
+    /**
+     * @description Fill table with random user
+     */
     fillTable() {
         this.users.forEach(user => {
             let tr = document.createElement('tr');
@@ -70,7 +81,9 @@ export class Table extends User {
             updateButton.innerText = 'Update';
             updateButton.addEventListener('click', () => {
                 this.modal.style.display = 'flex';
+                this.submitAddButton.style.display = 'none';
                 this.submitUpdateButton.style.display = 'block';
+
                 this.fillModalForm(tr);
                 this.userIdToUpdate = tr.id;
             });
@@ -79,18 +92,13 @@ export class Table extends User {
         });
     }
 
+    /**
+     * @description All interaction with the buttons
+     */
     addEventOnButtons(){
         const closeBtnModal = document.getElementById('close-cross');
-        const submitAddButton = document.getElementById('submitAddButton');
         const refreshButton = document.getElementById('container_refresh-button');
         const addNewUserButton = document.getElementById('container_add-user-button');
-<<<<<<< HEAD
-
-        if(addNewUserButton.addEventListener('click', () => {})){
-            console.log('hello');
-        }
-=======
->>>>>>> 7d40d0f70915d51a3c3dab927252f323fb1d91d6
 
         refreshButton.addEventListener('click', () => {
             this.removeAllData();
@@ -104,44 +112,38 @@ export class Table extends User {
         submitUpdateButton.addEventListener('click', () => {
             const trToUpdate = document.getElementById(this.userIdToUpdate);
 
-<<<<<<< HEAD
-            window.addEventListener('DOMContentLoaded', () => {
-                trToUpdate.children[3].innerText = this.inputUserEmail.value; 
-                trToUpdate.children[1].innerText = this.inputUserLastName.value; 
-                trToUpdate.children[2].innerText = this.inputUserFirstName.value; 
-                trToUpdate.children[0].firstChild.src = this.inputUserAvatar.value;
-            })
-=======
             trToUpdate.children[3].innerText = this.inputUserEmail.value; 
             trToUpdate.children[1].innerText = this.inputUserLastName.value; 
             trToUpdate.children[2].innerText = this.inputUserFirstName.value; 
             trToUpdate.children[0].firstChild.src = this.inputUserAvatar.value;
 
->>>>>>> 7d40d0f70915d51a3c3dab927252f323fb1d91d6
             this.modal.style.display = 'none';
         });
 
         addNewUserButton.addEventListener('click', () => {
             this.modal.style.display = 'flex';
-<<<<<<< HEAD
-            submitAddButton.style.display = "block"
+            this.submitAddButton.style.display = 'block';
+            this.submitUpdateButton.style.display = 'none';
         });
-        submitAddButton.addEventListener('click', () => {
-            this.addNewUser();
-            this.modal.style.display = 'none';
-=======
 
-            console.log('New user modale');
->>>>>>> 7d40d0f70915d51a3c3dab927252f323fb1d91d6
-        })
+        submitAddButton.addEventListener('click', () => {
+            this.modal.style.display = 'none';
+            this.addNewUser();
+        } )
     }
 
+    /**
+     * @description delete all data of th table
+     */
     removeAllData() {
         while (this.tbody.firstChild) {
             this.tbody.removeChild(this.tbody.firstChild);
         }
     }
 
+    /**
+     * @description fill the inputs of modal with data
+     */
     fillModalForm(tr) {
         this.inputUserEmail.value  = tr.children[3].innerText;
         this.inputUserLastName.value  = tr.children[1].innerText;
@@ -149,32 +151,34 @@ export class Table extends User {
         this.inputUserAvatar.value  = tr.children[0].firstChild.src;
     }
 
+    /**
+     * @description Creat new user
+     */
     addNewUser(){
         let tr = document.createElement('tr');
         
         // New user avatar
         let newUserAvatarTd = document.createElement('td');
         let newUserAvatar = document.createElement('img');
-        newUserAvatar.src = this.inputUserAvatar.value;
+        newUserAvatar.src = this.inputUserAvatar;
         newUserAvatarTd.appendChild(newUserAvatar);
         tr.appendChild(newUserAvatarTd);
 
         // New user last name
         let newUserLastName = document.createElement('td');
-        newUserLastName.innerText = this.inputUserLastName.value;
+        newUserLastName.innerText = this.inputUserLastName;
         tr.appendChild(newUserLastName);
 
         // New user first name
         let newUserFirstName = document.createElement('td');
-        newUserFirstName.innerText = this.inputUserFirstName.value;
+        newUserFirstName.innerText = this.inputUserFirstName;
         tr.appendChild(newUserFirstName);
 
         // New user email
         let newUserEmail = document.createElement('td');
-        newUserEmail.innerText = this.inputUserEmail.value;
+        newUserEmail.innerText = this.inputUserEmail;
         tr.appendChild(newUserEmail);
         
-
         let button = document.createElement('td');
         tr.appendChild(button);
 
@@ -195,5 +199,4 @@ export class Table extends User {
         this.tbody.appendChild(tr);
     }
 
-    
 }
