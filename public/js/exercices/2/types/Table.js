@@ -117,7 +117,7 @@ export class Table extends User {
         const updateButton = document.createElement('button');
 
         if (user === null || user === undefined) {
-            tr.id = uuidv4();
+            tr.id = Math.random().toString(16).slice(2);
             // Set avatar
             userAvatar.src = this.inputUserAvatar.value;
             userAvatarTd.appendChild(userAvatar);
