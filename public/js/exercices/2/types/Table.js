@@ -1,5 +1,6 @@
 import { User } from "./user.js";
 
+
 export class Table extends User {
     // Global variables
     userIdToUpdate = null;
@@ -38,7 +39,7 @@ export class Table extends User {
      */
     fillTable() {
         this.users.forEach(user => {
-            this.creatRowTable(user);
+            this.createRowTable(user);
         });
     }
 
@@ -78,7 +79,7 @@ export class Table extends User {
 
         submitAddButton.addEventListener('click', () => {
             this.modal.style.display = 'none';
-            this.creatRowTable();
+            this.createRowTable();
         })
     }
 
@@ -101,33 +102,35 @@ export class Table extends User {
         this.inputUserAvatar.value = tr.children[0].firstChild.src;
     }
 
-    creatRowTable(user) {
+    createRowTable(user) {
         const tr = document.createElement('tr');
-        const userAvatarTd = document.createElement('td');
+
         const userAvatar = document.createElement('img');
-        const userLastName = document.createElement('td')
-        const userFirstName = document.createElement('td');
-        const userEmail = document.createElement('td');
-        let button = document.createElement('td');
+
+        const userAvatarTd = document.createElement('td');
+        const userLastNameTd = document.createElement('td')
+        const userFirstNameTd = document.createElement('td');
+        const userEmailTd = document.createElement('td');
+
+        const actionsTd = document.createElement('td');
         const deleteButton = document.createElement('button');
         const updateButton = document.createElement('button');
 
         if (user === null || user === undefined) {
+            tr.id = uuidv4();
             // Set avatar
             userAvatar.src = this.inputUserAvatar.value;
             userAvatarTd.appendChild(userAvatar);
             tr.appendChild(userAvatarTd);
 
-            userLastName.innerText = this.inputUserLastName.value;
-            tr.appendChild(userLastName);
+            userLastNameTd.innerText = this.inputUserLastName.value;
+            tr.appendChild(userLastNameTd);
 
-            userFirstName.innerText = this.inputUserFirstName.value;
-            tr.appendChild(userFirstName);
+            userFirstNameTd.innerText = this.inputUserFirstName.value;
+            tr.appendChild(userFirstNameTd);
 
-            userEmail.innerText = this.inputUserEmail.value;
-            tr.appendChild(userEmail);
-
-            tr.appendChild(button);
+            userEmailTd.innerText = this.inputUserEmail.value;
+            tr.appendChild(userEmailTd);
         } else {
             tr.id = user.uid;
 
@@ -138,30 +141,30 @@ export class Table extends User {
 
             // Table data to last name
 
-            userLastName.innerText = user.last_name;
-            tr.appendChild(userLastName)
+            userLastNameTd.innerText = user.last_name;
+            tr.appendChild(userLastNameTd)
 
             // Table data to first name
-            userFirstName.innerText = user.first_name;
-            tr.appendChild(userFirstName);
+            userFirstNameTd.innerText = user.first_name;
+            tr.appendChild(userFirstNameTd);
 
             // Table data to email
-            userEmail.innerText = user.email;
-            tr.appendChild(userEmail);
-
-            // Table data to actions button
-            tr.appendChild(button);
+            userEmailTd.innerText = user.email;
+            tr.appendChild(userEmailTd);
         }
 
+        // Table data to actions button
+        tr.appendChild(actionsTd);
+
         // Button to delete row one by one of the table
-        button.appendChild(deleteButton);
+        actionsTd.appendChild(deleteButton);
         deleteButton.innerText = 'Delete';
         deleteButton.addEventListener('click', () => {
             tr.remove(tr.children);
         });
 
         // Button to update data of user
-        button.appendChild(updateButton);
+        actionsTd.appendChild(updateButton);
         updateButton.innerText = 'Update';
         updateButton.addEventListener('click', () => {
             this.modal.style.display = 'flex';
